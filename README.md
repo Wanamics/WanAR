@@ -1,11 +1,11 @@
-# WanAR<!-- omit in toc -->
+# Extension WanAR<!-- omit in toc -->
 
-## Prérequis<!-- omit in toc -->
-Les fonctions ci-après s'appuient sur la gestion des relances de Business Central introduite avec la version V24 (2024 w1).\
-A ce jour, cette fonctionnalité doit encore être activée manuellement (via  *Mise à jour des fonctionnalités : utilisez de nouveaux textes de communication pour les conditions de relance*).\
-Elle sera *Automatiquement activée à partir de* la version 28 (2026 w1).
-
+Cette extension regoupe des améliorations apportées à la gestion du recouvrement. 
 ![Account Receivables](docs/assets/AccountReceivables.png)
+
+> Ce n’est que l’une des extensions gracieusement mises à votre disposition (voir [Extensions | Wanamics](https://www.wanamics.fr/extensions-business-central/)).\
+Vous pouvez donc en disposer librement dans le cadre de la licence open source qui vous est accordée (voir [[Licence Open Source | Wanamics](https://www.wanamics.fr/licence-open-source/)).
+
 
 Voir aussi 
 * [Collecte des soldes restants | Microsoft Learn](https://learn.microsoft.com/fr-ch/dynamics365/business-central/receivables-collect-outstanding-balances)
@@ -13,6 +13,7 @@ Voir aussi
 * [Configuration des niveaux de relance | Microsoft Learn](https://learn.microsoft.com/fr-fr/dynamics365/business-central/finance-setup-reminders#to-set-up-reminder-levels)
 
 ### Sommaire<!-- omit in toc -->
+- [Prérequis](#prérequis)
 - [Ecritures comptables client](#ecritures-comptables-client)
   - [Colonnes](#colonnes)
   - [Actions](#actions)
@@ -22,6 +23,10 @@ Voir aussi
 - [Impact sur le modèle de données](#impact-sur-le-modèle-de-données)
 - [Fonctions connexes](#fonctions-connexes)
 
+## Prérequis
+Les fonctions ci-après s'appuient sur la gestion des relances de Business Central introduite avec la version V24 (2024 w1).\
+A ce jour, cette fonctionnalité doit encore être activée manuellement (via  *Mise à jour des fonctionnalités : utilisez de nouveaux textes de communication pour les conditions de relance*).\
+Elle sera *Automatiquement activée à partir de* la version 28 (2026 w1).
 
 ## Ecritures comptables client
 
