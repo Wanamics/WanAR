@@ -1,7 +1,7 @@
 # Extension WanAR<!-- omit in toc -->
 
-Cette extension regoupe des améliorations apportées à la gestion du recouvrement. 
-![Account Receivables](docs/assets/AccountReceivables.png)
+Cette extension regoupe des améliorations apportées à la gestion du recouvrement (Account Receivables). 
+![Account Receivables](images/AccountReceivables.png)
 
 > Ce n’est que l’une des extensions gracieusement mises à votre disposition (voir [Extensions | Wanamics](https://www.wanamics.fr/extensions-business-central/)).\
 Vous pouvez donc en disposer librement dans le cadre de la licence open source qui vous est accordée (voir [[Licence Open Source | Wanamics](https://www.wanamics.fr/licence-open-source/)).

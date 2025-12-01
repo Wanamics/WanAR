@@ -4,17 +4,12 @@ using System.EMail;
 using Microsoft.Foundation.Reporting;
 using Microsoft.Sales.History;
 using System.Utilities;
-using Microsoft.Sales.Reminder;
 
 codeunit 87191 "Reminder Events"
 {
     // Subset of codeunit 6753 "Send Reminder Event Handler" to be used while send a reminder email without reminder automation  
-    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Document-Mailing", OnBeforeEmailFileInternal, '', false, false)]
-
-    // OnBeforeEmailItemPreparation ??
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Document-Mailing", OnBeforeEmailItemPreparation, '', false, false)]
     local procedure OnBeforeEmailItemPreparation(var TempEmailItem: Record "Email Item" temporary; var HtmlBody: Codeunit "Temp Blob"; var EmailSubject: Text[250]; var ToEmailAddress: Text[250]; var PostedDocNo: Code[20]; var EmailDocName: Text[250]; var HideDialog: Boolean; var ReportUsage: Integer; var IsFromPostedDoc: Boolean; var SenderUserID: Code[50]; var EmailScenario: Enum "Email Scenario"; var EmailSentSuccessfully: Boolean; var IsHandled: Boolean)
-    // local procedure AttachRelatedDocumentsBeforeEmailFileInternal(var TempEmailItem: Record "Email Item" temporary; var HtmlBodyFilePath: Text[250]; var EmailSubject: Text[250]; var ToEmailAddress: Text[250]; var PostedDocNo: Code[20]; var EmailDocName: Text[250]; var HideDialog: Boolean; var ReportUsage: Integer; var IsFromPostedDoc: Boolean; var SenderUserID: Code[50]; var EmailScenario: Enum "Email Scenario"; var EmailSentSuccessfully: Boolean; var IsHandled: Boolean)
     var
         SourceTableList: List of [Integer];
         SourceIDList: List of [Guid];
