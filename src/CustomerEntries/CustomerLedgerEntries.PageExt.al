@@ -42,7 +42,7 @@ pageextension 87190 "Customer Ledger Entries" extends "Customer Ledger Entries"
             //     Width = 5;
             // }
 
-            Field(LatePaymentDays; LatePaymentDays(Rec))
+            Field(wanLatePaymentDays; wanGetLatePaymentDays(Rec))
             {
                 ApplicationArea = All;
                 Caption = 'Late Payment Days';
@@ -62,6 +62,7 @@ pageextension 87190 "Customer Ledger Entries" extends "Customer Ledger Entries"
             {
                 ApplicationArea = All;
                 Caption = 'Late Payment Invoices';
+                Image = DueDate;
                 ToolTip = 'Filter invoices overdue or where %1 is greater than %2.', Comment = '%1:FieldName("Closed at Date"), %2:FieldName("Due Date")';
                 trigger OnAction()
                 begin
@@ -93,7 +94,7 @@ pageextension 87190 "Customer Ledger Entries" extends "Customer Ledger Entries"
             exit(IssuedReminderHeader."Posting Date");
     end;
 
-    local procedure LatePaymentDays(pRec: Record "Cust. Ledger Entry"): Integer
+    local procedure wanGetLatePaymentDays(pRec: Record "Cust. Ledger Entry"): Integer
     begin
         if pRec."Closed at Date" <> 0D then
             exit(pRec."Closed at Date" - pRec."Due Date");

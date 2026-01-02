@@ -27,11 +27,11 @@ reportextension 87191 "Reminder - Test" extends "Reminder - Test"
     }
     var
         FormatAddress: Codeunit "Format Address";
+        DocumentHelper: Codeunit "Document Helper Subset";
         ToAddress: Text;
         CompanyAddress: Text;
         CompanyContactInfo: Text;
         CompanyLegalInfo: Text;
-        DocumentHelper: Codeunit "Document Helper Subset";
 
     trigger OnPreReport()
     begin

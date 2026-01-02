@@ -38,18 +38,32 @@ reportextension 87190 Reminder extends Reminder
         }
         add("Issued Reminder Line")
         {
+            column(wanDescription; DocumentHelper.iIf("Line Type" in ["Line Type"::"Reminder Line", "Line Type"::"Not Due"], Format("Document Type") + ' ' + "Document No.", Description)) { }
+            // column(wanInvoice_Url; DocumentHelper.iIf("Line Type" in ["Line Type"::"Reminder Line", "Line Type"::"Not Due"], wanInvoice_Url("Issued Reminder Line"), Description)) { }
+            // column(wanInvoice_UrlText; DocumentHelper.iIf("Line Type" in ["Line Type"::"Reminder Line", "Line Type"::"Not Due"], Format("Document Type") + ' ' + "Document No.", Description)) { }
             column(wanOriginalAmtBWZ; DocumentHelper.BlankZero("Original Amount", "Auto Format"::AmountFormat, "Issued Reminder Header"."Currency Code")) { }
             column(wanRemainingAmtBWZ; DocumentHelper.BlankZero("Remaining Amount", "Auto Format"::AmountFormat, "Issued Reminder Header"."Currency Code")) { }
         }
-        add(IssuedReminderLine2)
-        {
-            column(wanOriginalAmt2BWZ; DocumentHelper.BlankZero("Original Amount", "Auto Format"::AmountFormat, "Issued Reminder Header"."Currency Code")) { }
-            column(wanRemainingAmt2BWZ; DocumentHelper.BlankZero("Remaining Amount", "Auto Format"::AmountFormat, "Issued Reminder Header"."Currency Code")) { }
-        }
+        // add(IssuedReminderLine2)
+        // {
+        //     column(wanOriginalAmt2BWZ; DocumentHelper.BlankZero("Original Amount", "Auto Format"::AmountFormat, "Issued Reminder Header"."Currency Code")) { }
+        //     column(wanRemainingAmt2BWZ; DocumentHelper.BlankZero("Remaining Amount", "Auto Format"::AmountFormat, "Issued Reminder Header"."Currency Code")) { }
+        // }
         add(LetterText)
         {
+            column(wanBodyText; wanBodyText) { }
             column(wanCreatedByName; wanCreatedByName("Issued Reminder Header".SystemCreatedBy)) { }
             column(wanUserName; wanUserName()) { }
+        }
+        modify(LetterText)
+        {
+            trigger OnAfterPreDataItem()
+            var
+                wanReminderCommunication: Codeunit "Reminder Communication";
+            begin
+                wanBodyText := '';
+                wanReminderCommunication.PopulateEmailText("Issued Reminder Header", wanBodyText)
+            end;
         }
     }
     rendering
@@ -76,11 +90,12 @@ reportextension 87190 Reminder extends Reminder
 
     var
         FormatAddress: Codeunit "Format Address";
+        DocumentHelper: Codeunit "Document Helper Subset";
         ToAddress: Text;
         CompanyAddress: Text;
         CompanyContactInfo: Text;
         CompanyLegalInfo: Text;
-        DocumentHelper: Codeunit "Document Helper Subset";
+        wanBodyText: Text;
 
     local procedure wanCreatedByName(pUserID: Guid): Text
     var
@@ -94,7 +109,12 @@ reportextension 87190 Reminder extends Reminder
     var
         User: Record User;
     begin
-        if User.Get(UserSecurityId) then
+        if User.Get(UserSecurityId()) then
             exit(User."Full Name");
     end;
+
+    // local procedure wanInvoice_Url(pRec: Record "Issued Reminder Line") ReturnValue: Text
+    // begin
+    //     ReturnValue := 'https://www.wanamics.fr/' + Format(pRec."Document Type") + '_' + pRec."Document No.";
+    // end;
 }

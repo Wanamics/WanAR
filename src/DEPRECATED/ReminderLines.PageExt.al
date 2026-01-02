@@ -1,9 +1,10 @@
+#if FALSE
 namespace Wanamics.Reminders;
 
 using Microsoft.Sales.Reminder;
 using Microsoft.Sales.History;
 
-pageextension 87192 "Issued Reminder Lines" extends "Issued Reminder Lines"
+pageextension 87194 "Reminder Lines" extends "Reminder Lines"
 {
     actions
     {
@@ -26,3 +27,4 @@ pageextension 87192 "Issued Reminder Lines" extends "Issued Reminder Lines"
         }
     }
 }
+#endif

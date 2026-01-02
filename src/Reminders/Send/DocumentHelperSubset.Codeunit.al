@@ -50,6 +50,14 @@ codeunit 87190 "Document Helper Subset"
             ReturnValue += LineFeed() + pAddr[i];
     end;
 
+    procedure iIf(pIf: Boolean; pThen: Text; pElse: Text): Text
+    begin
+        if pIf then
+            exit(pThen)
+        else
+            exit(pElse);
+    end;
+
     procedure BlankZero(pDecimal: Decimal; pAutoFormatType: Enum "Auto Format"; pCurrencyCode: Code[10]): Text
     begin
         if pDecimal = 0 then

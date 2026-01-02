@@ -3,6 +3,18 @@
   <file datatype="xml" source-language="en-US" target-language="fr-FR" original="WanAR.g.xlf">
     <body>
       <group id="body">
+        <trans-unit id="Codeunit 2152033130 - NamedType 777839130" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder Level %1 on Reminder Term %2 was not found.</source>
+          <target>Le niveau de relance %1 sur le terme de relance %2 est introuvable.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Reminder Level No., %2 = Reminder Term Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit wan Reminder Communication - NamedType ReminderLevelNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2152033130 - NamedType 3904915530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder Term %1 was not found.</source>
+          <target>Le terme %1 de la relance introuvable.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Reminder Term Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit wan Reminder Communication - NamedType ReminderTermNotFoundErr</note>
+        </trans-unit>
         <trans-unit id="Page 3379258615 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Issued Reminder Lines</source>
           <target>Lignes relances</target>
@@ -141,6 +153,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Issued Reminder Lines - Action ShowDocument - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2172490937 - Control 1551403144 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2172490937">
+          <source>Specifies the main text of the email, which appears between the greeting and the closing.</source>
+          <target>Spécifie le texte main du courrier électronique qui apparaît entre le message d’accueil et la clôture.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Reminder Email Text - Control wan Body Text Editor - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2172490937 - Control 1551403144 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2172490937">
+          <source>wan Body Text</source>
+          <target>Corps du texte (suite)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Reminder Email Text - Control wan Body Text Editor - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 25694845 - Action 127686680 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 25694845">
           <source>Opens the invoice related to the selected issued reminder line.</source>
           <target>Ouvre la facture associée à la ligne de relance.</target>
@@ -158,6 +182,24 @@
           <target>Nbre de relances</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Cust. Ledger Entry - Field No. of Issued Reminders - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2172490937 - NamedType 2715144804" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 2172490937">
+          <source>No reminder email text selected.</source>
+          <target>Aucun texte de courrier électronique de relance sélectionné.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Reminder Email Text - NamedType NoRecordSelectedErr</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2172490937 - Method 1235754000 - NamedType 2111948134" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 2172490937">
+          <source>If you have already made the payment, please disregard this email. Thank you for your business.</source>
+          <target>Si vous avez déjà effectué le paiement, veuillez ignorer cet e-mail. Merci de votre collaboration.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Reminder Email Text - Method GetWanBodyLbl - NamedType WanBodyLbl</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2172490937 - Field 4185476567 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2172490937">
+          <source>wan Body Text</source>
+          <target>Corps du texte (suite)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Reminder Email Text - Field wan Body Text - Property Caption</note>
         </trans-unit>
         <trans-unit id="ReportExtension 87408810 - ReportLayout 2586373586 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 87408810">
           <source>The WanAR Reminder (Word) provides a detailed layout.</source>

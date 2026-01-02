@@ -3,6 +3,16 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="WanAR">
     <body>
       <group id="body">
+        <trans-unit id="Codeunit 1431265674 - NamedType 777839130" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder Level %1 on Reminder Term %2 was not found.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Reminder Level No., %2 = Reminder Term Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reminder Communication - NamedType ReminderLevelNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1431265674 - NamedType 3904915530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder Term %1 was not found.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Reminder Term Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reminder Communication - NamedType ReminderTermNotFoundErr</note>
+        </trans-unit>
         <trans-unit id="Page 3379258615 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Issued Reminder Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -93,45 +103,50 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer Ledger Entries - Control Last Issued Reminder Date - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2393537757 - Control 485195523 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
-          <source>Specifies the number of days that have passed since the due date of the customer ledger entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer Ledger Entries - Control LatePaymentDays - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2393537757 - Control 485195523 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
-          <source>Late Payment Days</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer Ledger Entries - Control LatePaymentDays - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 2393537757 - Control 1094569799 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
           <source>Specifies the value of the No. of Reminder Issued Entries field.</source>
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer Ledger Entries - Control No. of Reminder Issued - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 60465730 - Action 127686680 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 60465730">
-          <source>Opens the invoice related to the selected issued reminder line.</source>
+        <trans-unit id="PageExtension 2393537757 - Control 1967049355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
+          <source>Specifies the number of days that have passed since the due date of the customer ledger entry.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Issued Reminder Lines - Action ShowDocument - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer Ledger Entries - Control wanLatePaymentDays - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 60465730 - Action 127686680 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 60465730">
-          <source>Show Invoice</source>
+        <trans-unit id="PageExtension 2393537757 - Control 1967049355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
+          <source>Late Payment Days</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Issued Reminder Lines - Action ShowDocument - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer Ledger Entries - Control wanLatePaymentDays - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 25694845 - Action 127686680 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 25694845">
-          <source>Opens the invoice related to the selected issued reminder line.</source>
+        <trans-unit id="PageExtension 2172490937 - Control 1551403144 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2172490937">
+          <source>Specifies the main text of the email, which appears between the greeting and the closing.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Reminder Lines - Action ShowDocument - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Reminder Email Text - Control wan Body Text Editor - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 25694845 - Action 127686680 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 25694845">
-          <source>Show Invoice</source>
+        <trans-unit id="PageExtension 2172490937 - Control 1551403144 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2172490937">
+          <source>wan Body Text</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Reminder Lines - Action ShowDocument - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Reminder Email Text - Control wan Body Text Editor - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2733917450 - Field 181943994 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2733917450">
           <source>No. of Issued Reminders</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Cust. Ledger Entry - Field No. of Issued Reminders - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2172490937 - NamedType 2715144804" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 2172490937">
+          <source>No reminder email text selected.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Reminder Email Text - NamedType NoRecordSelectedErr</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2172490937 - Method 1235754000 - NamedType 2111948134" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 2172490937">
+          <source>If you have already made the payment, please disregard this email. Thank you for your business.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Reminder Email Text - Method GetWanBodyLbl - NamedType WanBodyLbl</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2172490937 - Field 4185476567 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2172490937">
+          <source>wan Body Text</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Reminder Email Text - Field wan Body Text - Property Caption</note>
         </trans-unit>
         <trans-unit id="ReportExtension 87408810 - ReportLayout 2586373586 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 87408810">
           <source>The WanAR Reminder (Word) provides a detailed layout.</source>

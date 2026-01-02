@@ -10,6 +10,7 @@ page 87191 "Issued Reminder Lines DrllDwn"
     LinksAllowed = false;
     PageType = List;
     SourceTable = "Issued Reminder Line";
+    UsageCategory = None;
 
     layout
     {
