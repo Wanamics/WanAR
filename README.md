@@ -1,6 +1,7 @@
 # Extension WanAR
 
 Cette extension regoupe des améliorations apportées à la gestion du recouvrement (Account Receivables). 
+
 ![Account Receivables](images/AccountReceivables.png)
 
 
@@ -14,9 +15,11 @@ Voir aussi
 - [Ecritures comptables client](#ecritures-comptables-client)
 - [Relance](#relance)
 - [Relance émise](#relance-émise)
+- [Relance par facture](#relance-par-facture)
 - [Présentations](#présentations)
 - [Envoyer par e-mail](#envoyer-par-e-mail)
 - [Impact sur le modèle de données](#impact-sur-le-modèle-de-données)
+- [Outils](#outils)
 - [Fonctions connexes](#fonctions-connexes)
 
 ## Prérequis
@@ -40,18 +43,30 @@ Elle sera *Automatiquement activée à partir de* la version 28 (2026 w1).
 
 * **Paiement tardif** : n'affiche que les écritures dont la **Date lettrage** est postérieure à la **Date d'échéance**
 
-
 ## Relance
+
 **Actions ligne**
 
-* Ajout de **Afficher facture**
+* +**Afficher facture**
 
 
 ## Relance émise
-  **Actions ligne**
+**Actions ligne**
 
-* Ajout de **Afficher facture**
+* +**Afficher facture**
 
+## Relance par facture
+
+Si un même **Client** Business Central en regroupe plusieurs (voir [Clients B2C, Tous pour un, un pour tous](
+https://www.wanamics.fr/clients-b2c-tous-pour-un-un-pour-tous/)), une relance unique n'aurait pas de sens.
+
+* Une **Condition relance** définie à cet effet est attribuée au client concerné.
+* Elle est complétée d'un indicateur **Par facture**.
+* Dès lors, le traitement **Créer relance** génère une relance discincte pour chaque facture.
+* L'adresse e-mail (non définie pour le client) est alors extraite de la facture concernée.
+
+**Remarque**
+* Il est possible d'associer au client concerné (ex : client générique B2C), une **Présentation document** spécifique (en particulier pour une **Disposition du corps du message** et/ou une **Disposition de la pièce jointe à un e-mail** personnalisée). Cependant **Envoyer vers e-mail** ne doit pas être renseigné, faute de quoi l'adresse e-mail de la facture ne serait pas prise en compte.
 
 ## Présentations
 
@@ -84,12 +99,23 @@ Elle sera *Automatiquement activée à partir de* la version 28 (2026 w1).
 * Le message mentionne les factures en retard mais pas celles non échues (la page d'options n'étant pas proposée, l'option **Afficher montant échus** ne peut être sélectionnée). 
 
 ## Impact sur le modèle de données
-**Table Reminder Email** 
-* Ajout du champ **wan Body text** (*Corps du texte (suite)*)
+
+* **Table Reminder terms**
+  * +**wanAR Per Invoice**
+
+* **Table Reminder Email** 
+  * +**wan Body text** (*Corps du texte (suite)*)
+
+* **Table Reminder Header**
+  * +**WanAR Sell-to E-Mail**
+
+* **Table Issued Reminder Header**
+  * +**WanAR Sell-to E-Mail**
+
 ## Outils
 * Le traitement **Remove Beginning/Ending Lines** (URL + ?Report=87190) permet de supprimer les lignes de texte de début/fin sur les relances émises (pour éviter la redondance avec le corps du message.)\
 
 
 ## Fonctions connexes
 
-* Optionnel : WanaDoc (MemoPad) pour faciliter la gestion des textes.
+* Optionnel : WanaDoc (MemoPad) pour faciliter la gestion des textes **Lignes début** et **Lignes fin**.
