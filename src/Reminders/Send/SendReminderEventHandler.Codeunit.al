@@ -3,6 +3,7 @@ namespace Wanamics.Reminders;
 using System.EMail;
 using Microsoft.Foundation.Reporting;
 using Microsoft.Sales.History;
+using Microsoft.Sales.Reminder;
 using System.Utilities;
 
 codeunit 87191 "Reminder Attach. Event Handler"
@@ -21,6 +22,9 @@ codeunit 87191 "Reminder Attach. Event Handler"
     begin
         if ReportUsage <> Enum::"Report Selection Usage"::Reminder.AsInteger() then
             exit;
+        if not AttachInvoices(PostedDocNo) then
+            exit;
+
         TempEmailItem.GetSourceDocuments(SourceTableList, SourceIDList, SourceRelationTypeList);
 
         for i := 1 to SourceTableList.Count() do begin
@@ -28,11 +32,21 @@ codeunit 87191 "Reminder Attach. Event Handler"
             SourceRelationID := SourceRelationTypeList.Get(i);
             SourceID := SourceIDList.Get(i);
             if SourceTableID = Database::"Sales Invoice Header" then
-                AttachDocument(TempEmailItem, SourceTableID, SourceRelationID, SourceID);
+                AttachInvoice(TempEmailItem, SourceTableID, SourceRelationID, SourceID);
         end;
     end;
 
-    local procedure AttachDocument(var TempEmailItem: Record "Email Item" temporary; SourceTableID: Integer; SourceRelationID: Integer; SourceID: Guid)
+    local procedure AttachInvoices(pPostedDocNo: Code[20]): Boolean
+    var
+        IssuedReminderHeader: Record "Issued Reminder Header";
+        ReminderTerms: Record "Reminder Terms";
+    begin
+        if IssuedReminderHeader.Get(pPostedDocNo) then
+            if ReminderTerms.Get(IssuedReminderHeader."Reminder Terms Code") then
+                exit(ReminderTerms."WanAR Attach Invoices as pdf");
+    end;
+
+    local procedure AttachInvoice(var TempEmailItem: Record "Email Item" temporary; SourceTableID: Integer; SourceRelationID: Integer; SourceID: Guid)
     var
         ReportSelections: Record "Report Selections";
         SalesInvoiceHeader: Record "Sales Invoice Header";

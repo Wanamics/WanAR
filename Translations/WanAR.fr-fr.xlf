@@ -207,6 +207,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension WanAR Reminder Terms - Field WanAR Per Invoice - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 742267497 - Control 2431034238 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3496355856">
+          <source>Specifies the value of the Attach Invoices as pdf field.</source>
+          <target>Indique que les factures (pdf) sont jointes au mail de relance.</target>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension WanAR Reminder Terms Send - Control WanAR Attach Invoices as pdf - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 742267497 - Control 1729531039 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3496355856">
+          <source>Specifies the value of the Per invoice field.</source>
+          <target>Permet de générer une relance distincte pour chaque facture (cas d'un unique client B2C par exemple) et de reprendre l'adresse e-mail de celle-ci.</target>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension WanAR Reminder Terms Setup - Control WanAR Per Invoice - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="TableExtension 127476521 - Field 3237529046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
           <source>Sell-to E-Mail</source>
           <target>E-Mail de donneur d’ordre</target>
@@ -218,6 +230,12 @@
           <target>E-Mail de donneur d’ordre</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension WanAR Reminder Header - Field WanAR Sell-to E-Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4011355172 - Field 2431034238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3280694829">
+          <source>Attach Invoices as pdf</source>
+          <target>Joindre factures (pdf)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension wanAR Reminder Terms Send - Field WanAR Attach Invoices as pdf - Property Caption</note>
         </trans-unit>
       </group>
     </body>

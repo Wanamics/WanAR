@@ -4,6 +4,8 @@ using Microsoft.Sales.Reminder;
 using Microsoft.Foundation.Address;
 using System.Security.AccessControl;
 using System.Text;
+using Microsoft.EServices.EDocument;
+using Microsoft.Sales.History;
 reportextension 87190 Reminder extends Reminder
 {
     dataset
@@ -39,8 +41,8 @@ reportextension 87190 Reminder extends Reminder
         add("Issued Reminder Line")
         {
             column(wanDescription; DocumentHelper.iIf("Line Type" in ["Line Type"::"Reminder Line", "Line Type"::"Not Due"], Format("Document Type") + ' ' + "Document No.", Description)) { }
-            // column(wanInvoice_Url; DocumentHelper.iIf("Line Type" in ["Line Type"::"Reminder Line", "Line Type"::"Not Due"], wanInvoice_Url("Issued Reminder Line"), Description)) { }
-            // column(wanInvoice_UrlText; DocumentHelper.iIf("Line Type" in ["Line Type"::"Reminder Line", "Line Type"::"Not Due"], Format("Document Type") + ' ' + "Document No.", Description)) { }
+            column(wanInvoice_Url; DocumentHelper.iIf("Line Type" in ["Line Type"::"Reminder Line", "Line Type"::"Not Due"], wanInvoiceUrl("Issued Reminder Line"), Description)) { }
+            column(wanInvoice_UrlText; DocumentHelper.iIf("Line Type" in ["Line Type"::"Reminder Line", "Line Type"::"Not Due"], Format("Document Type") + ' ' + "Document No.", Description)) { }
             column(wanOriginalAmtBWZ; DocumentHelper.BlankZero("Original Amount", "Auto Format"::AmountFormat, "Issued Reminder Header"."Currency Code")) { }
             column(wanRemainingAmtBWZ; DocumentHelper.BlankZero("Remaining Amount", "Auto Format"::AmountFormat, "Issued Reminder Header"."Currency Code")) { }
         }
@@ -113,8 +115,30 @@ reportextension 87190 Reminder extends Reminder
             exit(User."Full Name");
     end;
 
-    // local procedure wanInvoice_Url(pRec: Record "Issued Reminder Line") ReturnValue: Text
-    // begin
-    //     ReturnValue := 'https://www.wanamics.fr/' + Format(pRec."Document Type") + '_' + pRec."Document No.";
-    // end;
+    local procedure wanInvoiceUrl(pRec: Record "Issued Reminder Line") ReturnValue: Text
+    begin
+        OnBeforeWanInvoiceUrl("Issued Reminder Header", pRec, ReturnValue);
+        if ReturnValue <> '' then
+            exit;
+        GetIncomingDocumentUrl(pRec."Document No.", ReturnValue);
+    end;
+
+    local procedure GetIncomingDocumentUrl(pDocumentNo: code[20]; var ReturnValue: Text);
+    var
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        IncomingDocument: Record "Incoming Document";
+    begin
+        if not SalesInvoiceHeader.Get(pDocumentNo) then
+            exit;
+        IncomingDocument.SetCurrentKey("Document No.");
+        IncomingDocument.SetRange("Document Type", IncomingDocument."Document Type"::"Sales Invoice");
+        IncomingDocument.SetRange("Document No.", pDocumentNo);
+        if IncomingDocument.FindFirst() then
+            ReturnValue := IncomingDocument.URL;
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeWanInvoiceUrl(IssuedReminderHeader: Record "Issued Reminder Header"; IssuedReminderLine: Record "Issued Reminder Line"; ReturnValue: Text)
+    begin
+    end;
 }

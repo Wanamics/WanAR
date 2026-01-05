@@ -81,17 +81,22 @@ https://www.wanamics.fr/clients-b2c-tous-pour-un-un-pour-tous/)), une relance un
     * wanCompanyInfoPicture : Logo de la société
   * Issued Reminder Line
     * wanDescription : **Type Document** et **N° document** si facture (échue ou non), **Description** sinon.
+    * wanInvoice_Url : URL de la facture (voir ci-après)
     * wanOriginalAmtBWZ : Montant initial (vide si nul)
     * wanRemainingAmtBWZ : Montant ouvert (vide si nul)
   * LetterText
     * wanBodyText : **Corps du message (suite)** voir [Envoyer par e-mail](#envoyer-par-e-mail)
     * wanCreatedByName : Nom de l'utilisateur ayant émis la relance
     * wanUserName : Nom de l'utilisateur courant
+    * 
+## URL des factures
+Si les factures sont disponibles (en pdf sur un espace client par exemple), le champ wanInvoice_Url permettra d'y accéder (évitant ainsi d'avoir à les mettre en pièces jointes).
+Il est repris du document entrant associé (ou peut être personnalisé par un event du report Reminder : OnBeforeWanInvoiceUrl).
 
 ## Envoyer par e-mail
-* Comme pour la procédure automatisée, les factures concernées sont également jointes au mail de relance pour la procédure manuelle.
+* Comme pour la procédure automatisée, les factures concernées ppeuvent être jointes au mail de relance pour la procédure manuelle, en cochant l'indicateur **Joindre factures (pdf)** de la **Condition relance**.
 * Le **Corps du message (suite)** similaire au **Corps du message** permet de dissocier le corps du message respectivement après ou avant le détail des lignes.\
- Il vient donc le compléter la page **Communication** associée à **Condition de paiement** ou **Niveau relance**. 
+ Il vient donc compléter la page **Communication** associée à **Condition de paiement** ou **Niveau relance**. 
 
 **Remarques**
 
@@ -113,7 +118,7 @@ https://www.wanamics.fr/clients-b2c-tous-pour-un-un-pour-tous/)), une relance un
   * +**WanAR Sell-to E-Mail**
 
 ## Outils
-* Le traitement **Remove Beginning/Ending Lines** (URL + ?Report=87190) permet de supprimer les lignes de texte de début/fin sur les relances émises (pour éviter la redondance avec le corps du message.)\
+* Le traitement **Remove Beginning/Ending Lines** (BC url + ?Report=87190) permet de supprimer les lignes de texte de début/fin sur les relances émises (pour éviter la redondance avec le corps du message.)\
 
 
 ## Fonctions connexes
