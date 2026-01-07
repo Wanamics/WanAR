@@ -1,3 +1,4 @@
+#if FALSE
 namespace Wanamics.Reminders;
 
 using Microsoft.Sales.Reminder;
@@ -36,3 +37,4 @@ pageextension 87191 "Reminder Email Text" extends "Reminder Email Text"
     var
         wanBodyText: Text;
 }
+#endif

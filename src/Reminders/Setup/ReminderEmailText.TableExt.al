@@ -1,3 +1,4 @@
+#if FALSE
 namespace Wanamics.Reminders;
 
 using Microsoft.Sales.Reminder;
@@ -71,3 +72,4 @@ tableextension 87191 "Reminder Email Text" extends "Reminder Email Text"
         exit(BodyText);
     end;
 }
+#endif

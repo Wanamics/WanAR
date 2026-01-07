@@ -57,6 +57,7 @@ reportextension 87190 Reminder extends Reminder
             column(wanCreatedByName; wanCreatedByName("Issued Reminder Header".SystemCreatedBy)) { }
             column(wanUserName; wanUserName()) { }
         }
+#if FALSE
         modify(LetterText)
         {
             trigger OnAfterPreDataItem()
@@ -67,6 +68,7 @@ reportextension 87190 Reminder extends Reminder
                 wanReminderCommunication.PopulateEmailText("Issued Reminder Header", wanBodyText)
             end;
         }
+#endif
     }
     rendering
     {

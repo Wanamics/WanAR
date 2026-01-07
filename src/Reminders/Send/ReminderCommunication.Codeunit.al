@@ -1,3 +1,4 @@
+#if FALSE
 // Subset of codeunit 1890 "Reminder Communication" for wanBodyText handling (like Body Text)
 namespace Wanamics.Reminders;
 using Microsoft.Sales.Reminder;
@@ -171,3 +172,4 @@ codeunit 87192 "Reminder Communication"
     begin
     end;
 }
+#endif

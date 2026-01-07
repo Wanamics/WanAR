@@ -17,10 +17,10 @@ Voir aussi
 - [Relance émise](#relance-émise)
 - [Relance par facture](#relance-par-facture)
 - [Présentations](#présentations)
+- [URL des factures](#url-des-factures)
 - [Envoyer par e-mail](#envoyer-par-e-mail)
 - [Impact sur le modèle de données](#impact-sur-le-modèle-de-données)
 - [Outils](#outils)
-- [Fonctions connexes](#fonctions-connexes)
 
 ## Prérequis
 Les fonctions ci-après s'appuient sur la gestion des relances de Business Central introduite avec la version V24 (2024 w1).\
@@ -82,23 +82,30 @@ https://www.wanamics.fr/clients-b2c-tous-pour-un-un-pour-tous/)), une relance un
   * Issued Reminder Line
     * wanDescription : **Type Document** et **N° document** si facture (échue ou non), **Description** sinon.
     * wanInvoice_Url : URL de la facture (voir ci-après)
+    * wanInvoice_UrlText : Nom du lien (**Type document** et **N° document**).
     * wanOriginalAmtBWZ : Montant initial (vide si nul)
     * wanRemainingAmtBWZ : Montant ouvert (vide si nul)
   * LetterText
+  <!--
     * wanBodyText : **Corps du message (suite)** voir [Envoyer par e-mail](#envoyer-par-e-mail)
+  -->
     * wanCreatedByName : Nom de l'utilisateur ayant émis la relance
     * wanUserName : Nom de l'utilisateur courant
-    * 
+
 ## URL des factures
-Si les factures sont disponibles (en pdf sur un espace client par exemple), le champ wanInvoice_Url permettra d'y accéder (évitant ainsi d'avoir à les mettre en pièces jointes).
-Il est repris du document entrant associé (ou peut être personnalisé par un event du report Reminder : OnBeforeWanInvoiceUrl).
+Si les factures sont disponibles sur un espace client (en dehors de Business Central), le champ wanInvoice_Url permettra d'y accéder (évitant ainsi d'avoir à les mettre en pièces jointes).
+
+Il est repris du document entrant qui doit donc être préalablement créé et associé à la facture (il peut également s'agir d'un lien personnalisé par un event du report Reminder : OnBeforeWanInvoiceUrl).
 
 ## Envoyer par e-mail
 * Comme pour la procédure automatisée, les factures concernées ppeuvent être jointes au mail de relance pour la procédure manuelle, en cochant l'indicateur **Joindre factures (pdf)** de la **Condition relance**.
+<!-->
 * Le **Corps du message (suite)** similaire au **Corps du message** permet de dissocier le corps du message respectivement après ou avant le détail des lignes.\
- Il vient donc compléter la page **Communication** associée à **Condition de paiement** ou **Niveau relance**. 
-
+Il vient donc compléter la page **Communication** associée à **Condition de paiement** ou **Niveau relance**. 
+-->
 **Remarques**
+
+* Les lignes de texte debut et fin provenant des versions antérieures sont avantageusement remplacées par le corps du message et peuvent dont être supprimées de la coinfiguration pour éviter la rendondance (voir [Outils](#outils) pour les supprimer des relances émises antérieures)
 
 * Pour éviter de joindre le document de relance (ayant peu d'intérêt si le corps du message reprend les mêmes informations), il suffit de ne pas cocher **Utiliser comme pièce jointe** pour la **Sélection des états : Rappel/Intérêts de retard** et de laisser vide le **Nom du fichier** en **Configuration des conditions de relance** (par **Niveau** et **Code langue** le cas échéant).
 * Le message mentionne les factures en retard mais pas celles non échues (la page d'options n'étant pas proposée, l'option **Afficher montant échus** ne peut être sélectionnée). 
@@ -107,9 +114,12 @@ Il est repris du document entrant associé (ou peut être personnalisé par un e
 
 * **Table Reminder terms**
   * +**wanAR Per Invoice**
+  * +**wanAR Attach Invoices as pdf**
 
+<!--
 * **Table Reminder Email** 
   * +**wan Body text** (*Corps du texte (suite)*)
+-->
 
 * **Table Reminder Header**
   * +**WanAR Sell-to E-Mail**
@@ -118,9 +128,10 @@ Il est repris du document entrant associé (ou peut être personnalisé par un e
   * +**WanAR Sell-to E-Mail**
 
 ## Outils
-* Le traitement **Remove Beginning/Ending Lines** (BC url + ?Report=87190) permet de supprimer les lignes de texte de début/fin sur les relances émises (pour éviter la redondance avec le corps du message.)\
+* Le traitement **Remove Beginning/Ending Lines** (?Report=87190) permet de supprimer les lignes de texte de début/fin sur les relances émises (pour éviter la redondance avec le corps du message.)\
 
-
+<!--
 ## Fonctions connexes
 
 * Optionnel : WanaDoc (MemoPad) pour faciliter la gestion des textes **Lignes début** et **Lignes fin**.
+-->
