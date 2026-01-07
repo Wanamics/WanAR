@@ -9,6 +9,7 @@ tableextension 87192 "WanAR Reminder Terms" extends "Reminder Terms"
         {
             Caption = 'Per invoice';
             DataClassification = CustomerContent;
+            ToolTip = 'Create distinct reminder for each invoice and use e-mail "Sell-to contact E-mail" from sales invoice.';
         }
     }
 }

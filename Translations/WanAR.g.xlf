@@ -133,6 +133,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Reminder - ReportLayout wanReminderEmail - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 4011355172 - Field 1729531039 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3280694829">
+          <source>Create distinct reminder for each invoice and use e-mail "Sell-to contact E-mail" from sales invoice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension WanAR Reminder Terms - Field WanAR Per Invoice - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="TableExtension 4011355172 - Field 1729531039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3280694829">
           <source>Per invoice</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -157,6 +162,11 @@
           <source>Sell-to E-Mail</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension WanAR Reminder Header - Field WanAR Sell-to E-Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4011355172 - Field 2431034238 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3280694829">
+          <source>Specifie each sales invoice will be printed as pdf and attached to reminder e-mail.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension wanAR Reminder Terms Send - Field WanAR Attach Invoices as pdf - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="TableExtension 4011355172 - Field 2431034238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3280694829">
           <source>Attach Invoices as pdf</source>

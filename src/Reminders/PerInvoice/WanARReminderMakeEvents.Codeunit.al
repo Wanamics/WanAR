@@ -12,8 +12,8 @@ codeunit 87193 "WanAR Reminder-Make Events"
     var
         CLE: Record "Cust. Ledger Entry";
         CLE2: Record "Cust. Ledger Entry";
-        MakeReminder: Codeunit "Reminder-Make";
         ReminderTerms: Record "Reminder Terms";
+        MakeReminder: Codeunit "Reminder-Make";
     begin
         if not ReminderTerms.Get(Customer."Reminder Terms Code") or not ReminderTerms."WanAR Per Invoice" then
             exit;
@@ -30,7 +30,7 @@ codeunit 87193 "WanAR Reminder-Make Events"
                 CLE2 := CLE;
                 CLE2.SetRange("Entry No.", CLE."Entry No.");
                 MakeReminder.Set(Customer, CLE2, ReminderHeaderReq, OverdueEntriesOnly, IncludeEntriesOnHold, CustLedgEntryLineFeeOn);
-                MakeReminder.Code;
+                MakeReminder.Code();
                 Clear(MakeReminder);
             until CLE.Next() = 0;
     end;
